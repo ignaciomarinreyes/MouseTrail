@@ -105,13 +105,18 @@
         <Component class="javax.swing.JComboBox" name="jMouseTrailComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Blue"/>
-                <StringItem index="1" value="Green"/>
-                <StringItem index="2" value="Red"/>
+              <StringArray count="4">
+                <StringItem index="0" value="White"/>
+                <StringItem index="1" value="Red"/>
+                <StringItem index="2" value="Blue"/>
+                <StringItem index="3" value="Green"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="1"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMouseTrailComboBoxActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -124,13 +129,17 @@
         <Component class="javax.swing.JComboBox" name="jBackGroundComboBox">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Red"/>
-                <StringItem index="1" value="Blue"/>
-                <StringItem index="2" value="Green"/>
+              <StringArray count="4">
+                <StringItem index="0" value="White"/>
+                <StringItem index="1" value="Red"/>
+                <StringItem index="2" value="Blue"/>
+                <StringItem index="3" value="Green"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBackGroundComboBoxActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>

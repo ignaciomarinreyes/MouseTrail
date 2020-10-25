@@ -1,17 +1,17 @@
-
 package view;
 
+import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Canvas;
-
 
 public class MainFrame extends javax.swing.JFrame {
+
     public MainFrame() {
         initComponents();
         setLookAndFeel();
+        setLocationRelativeTo(null);
+        setResizable(false);
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -30,11 +30,22 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Colour", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 14))); // NOI18N
 
-        jMouseTrailComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Blue", "Green", "Red" }));
+        jMouseTrailComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "White", "Red", "Blue", "Green" }));
+        jMouseTrailComboBox.setSelectedIndex(1);
+        jMouseTrailComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMouseTrailComboBoxActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Trail");
 
-        jBackGroundComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Red", "Blue", "Green" }));
+        jBackGroundComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "White", "Red", "Blue", "Green" }));
+        jBackGroundComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBackGroundComboBoxActionPerformed(evt);
+            }
+        });
 
         jBackGroundLabel.setText("Background");
 
@@ -124,17 +135,58 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void canvas1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseMoved
-        
+
         try {
             canvas1.createTrail(evt.getPoint());
         } catch (InterruptedException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         repaint();
-        
+
     }//GEN-LAST:event_canvas1MouseMoved
 
-    
+    private void jBackGroundComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackGroundComboBoxActionPerformed
+        switch (jBackGroundComboBox.getSelectedIndex()) {
+            case 0:
+                canvas1.setBackgroundColour(Color.WHITE);
+                break;
+            case 1:
+                canvas1.setBackgroundColour(new Color(255, 153, 153));
+
+                break;
+            case 2:
+                canvas1.setBackgroundColour(Color.CYAN);
+                break;
+            case 3:
+                canvas1.setBackgroundColour(new Color(153, 255, 153));
+                break;
+        }
+        repaint();
+
+    }//GEN-LAST:event_jBackGroundComboBoxActionPerformed
+
+    private void jMouseTrailComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMouseTrailComboBoxActionPerformed
+
+        switch (jMouseTrailComboBox.getSelectedIndex()) {
+            case 0:
+                canvas1.setTrailColour(Color.WHITE);
+
+                break;
+            case 1:
+                canvas1.setTrailColour(new Color(255, 153, 153));
+
+                break;
+            case 2:
+                canvas1.setTrailColour(Color.CYAN);
+
+                break;
+            case 3:
+                canvas1.setTrailColour(new Color(153, 255, 153));
+                break;
+        }
+        repaint();
+    }//GEN-LAST:event_jMouseTrailComboBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private model.Canvas canvas1;
