@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 public class Canvas extends JPanel {
 
-    private final Point[] points;
+    private Point[] points;
     private int index = 0;
     private Color backgroundColour= Color.WHITE;
     private Color trailColour = new Color(255,153,153);
@@ -40,5 +40,11 @@ public class Canvas extends JPanel {
         points[index % 5] = point;
         index++;
         Thread.sleep(40);
+    }
+    public void cleanPanel(){
+        this.backgroundColour = Color.WHITE;
+        this.trailColour = new Color(255,153,153);
+        points = new Point[5];
+        index = 0;
     }
 }

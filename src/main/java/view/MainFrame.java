@@ -22,9 +22,10 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jBackGroundComboBox = new javax.swing.JComboBox<>();
         jBackGroundLabel = new javax.swing.JLabel();
+        jCleanButton = new javax.swing.JButton();
         jMouseTrailLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        canvas1 = new model.Canvas();
+        canvas = new model.Canvas();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,30 +50,40 @@ public class MainFrame extends javax.swing.JFrame {
 
         jBackGroundLabel.setText("Background");
 
+        jCleanButton.setText("Clean");
+        jCleanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCleanButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(41, 41, 41)
                 .addComponent(jBackGroundLabel)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(jBackGroundComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addGap(49, 49, 49)
                 .addComponent(jLabel2)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jMouseTrailComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(jCleanButton)
+                .addGap(25, 25, 25))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jMouseTrailComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jBackGroundComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBackGroundLabel))
+                    .addComponent(jBackGroundLabel)
+                    .addComponent(jCleanButton))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
@@ -82,22 +93,22 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel1.setText("By Jesús Lárez & Ignacio Marín");
 
-        canvas1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        canvas1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        canvas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        canvas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                canvas1MouseMoved(evt);
+                canvasMouseMoved(evt);
             }
         });
 
-        javax.swing.GroupLayout canvas1Layout = new javax.swing.GroupLayout(canvas1);
-        canvas1.setLayout(canvas1Layout);
-        canvas1Layout.setHorizontalGroup(
-            canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        javax.swing.GroupLayout canvasLayout = new javax.swing.GroupLayout(canvas);
+        canvas.setLayout(canvasLayout);
+        canvasLayout.setHorizontalGroup(
+            canvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 495, Short.MAX_VALUE)
         );
-        canvas1Layout.setVerticalGroup(
-            canvas1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 303, Short.MAX_VALUE)
+        canvasLayout.setVerticalGroup(
+            canvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 301, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,12 +117,18 @@ public class MainFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jMouseTrailLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(62, 62, 62)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(310, 310, 310)
+                                .addComponent(jLabel1))
+                            .addComponent(canvas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +138,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(canvas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(canvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addContainerGap())
@@ -130,31 +147,31 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void canvas1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvas1MouseMoved
+    private void canvasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_canvasMouseMoved
 
         try {
-            canvas1.createTrail(evt.getPoint());
+            canvas.createTrail(evt.getPoint());
         } catch (InterruptedException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         repaint();
 
-    }//GEN-LAST:event_canvas1MouseMoved
+    }//GEN-LAST:event_canvasMouseMoved
 
     private void jBackGroundComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackGroundComboBoxActionPerformed
         switch (jBackGroundComboBox.getSelectedIndex()) {
             case 0:
-                canvas1.setBackgroundColour(Color.WHITE);
+                canvas.setBackgroundColour(Color.WHITE);
                 break;
             case 1:
-                canvas1.setBackgroundColour(new Color(255, 153, 153));
+                canvas.setBackgroundColour(new Color(255, 153, 153));
 
                 break;
             case 2:
-                canvas1.setBackgroundColour(Color.CYAN);
+                canvas.setBackgroundColour(Color.CYAN);
                 break;
             case 3:
-                canvas1.setBackgroundColour(new Color(153, 255, 153));
+                canvas.setBackgroundColour(new Color(153, 255, 153));
                 break;
         }
         repaint();
@@ -165,29 +182,37 @@ public class MainFrame extends javax.swing.JFrame {
 
         switch (jMouseTrailComboBox.getSelectedIndex()) {
             case 0:
-                canvas1.setTrailColour(Color.WHITE);
+                canvas.setTrailColour(Color.WHITE);
 
                 break;
             case 1:
-                canvas1.setTrailColour(new Color(255, 153, 153));
+                canvas.setTrailColour(new Color(255, 153, 153));
 
                 break;
             case 2:
-                canvas1.setTrailColour(Color.CYAN);
+                canvas.setTrailColour(Color.CYAN);
 
                 break;
             case 3:
-                canvas1.setTrailColour(new Color(153, 255, 153));
+                canvas.setTrailColour(new Color(153, 255, 153));
                 break;
         }
         repaint();
     }//GEN-LAST:event_jMouseTrailComboBoxActionPerformed
 
+    private void jCleanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCleanButtonActionPerformed
+        canvas.cleanPanel();
+        jBackGroundComboBox.setSelectedIndex(0);
+        jMouseTrailComboBox.setSelectedIndex(1);
+        repaint();
+    }//GEN-LAST:event_jCleanButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private model.Canvas canvas1;
+    private model.Canvas canvas;
     private javax.swing.JComboBox<String> jBackGroundComboBox;
     private javax.swing.JLabel jBackGroundLabel;
+    private javax.swing.JButton jCleanButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JComboBox<String> jMouseTrailComboBox;
